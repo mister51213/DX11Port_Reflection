@@ -11,6 +11,8 @@
 // INCLUDES //
 //////////////
 #include <d3d11.h>
+#include <wrl/client.h>
+
 //#include <d3dx11tex.h>
 
 
@@ -30,8 +32,13 @@ public:
 	ID3D11ShaderResourceView* GetTexture();
 
 private:
-	ID3D11Resource* m_texture;
-	ID3D11ShaderResourceView* m_textureView;
+	//ID3D11Resource* m_texture;
+	Microsoft::WRL::ComPtr <ID3D11Resource> m_texture;
+	//Microsoft::WRL::ComPtr <ID3D11Texture2D> m_texture;
+
+	//ID3D11ShaderResourceView* m_textureView;
+	Microsoft::WRL::ComPtr <ID3D11ShaderResourceView> m_textureView;
+
 };
 
 #endif

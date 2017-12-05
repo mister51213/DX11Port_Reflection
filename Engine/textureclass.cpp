@@ -1,7 +1,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 // Filename: textureclass.cpp
 ////////////////////////////////////////////////////////////////////////////////
-#pragma comment(lib, "DirectXTK.lib")
+//#pragma comment(lib, "DirectXTK.lib")
 
 #include "textureclass.h"
 #include "DDSTextureLoader.h"
@@ -10,18 +10,14 @@ using namespace DirectX;
 
 TextureClass::TextureClass()
 {
-	m_texture = 0;
+	//m_texture = 0;
 }
-
 
 TextureClass::TextureClass(const TextureClass& other)
 {}
 
-
 TextureClass::~TextureClass()
-{
-}
-
+{}
 
 bool TextureClass::Initialize(ID3D11Device* device, ID3D11DeviceContext* d3dContext, WCHAR* filename, ID3D11ShaderResourceView** textureView)
 {
@@ -49,27 +45,25 @@ bool TextureClass::Initialize(ID3D11Device* device, ID3D11DeviceContext* d3dCont
 	return true;
 }
 
-
 void TextureClass::Shutdown()
 {
 	// Release the texture resource.
-	if(m_texture)
-	{
-		m_texture->Release();
-		m_texture = 0;
-	}
+	//if(m_texture)
+	//{
+	//	m_texture->Release();
+	//	m_texture = 0;
+	//}
 
-	if (m_textureView)
-	{
-		m_textureView->Release();
-		m_textureView = 0;
-	}
+	//if (m_textureView)
+	//{
+	//	m_textureView->Release();
+	//	m_textureView = 0;
+	//}
 
 	return;
 }
 
-
 ID3D11ShaderResourceView* TextureClass::GetTexture()
 {
-	return m_textureView;
+	return m_textureView.Get();
 }
